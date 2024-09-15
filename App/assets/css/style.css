@@ -1,0 +1,102 @@
+.calendar-bg{
+    background-image: url('../images/Screenshot\ 2024-09-13\ 064330.png');
+    background-size: cover;
+    background-position: center;
+    background-color: aliceblue;
+}
+.logo{
+height: 80px;
+}
+.text-lg {
+margin-left: 16px; 
+font-size: 1.125rem;
+font-weight: 600; 
+}
+/* register birth */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.add-button {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.add-button:hover {
+    background-color: #0056b3;
+}
+
+/* Pop-up Styles */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    padding: 20px;
+    border: 2px solid black;
+    background-color: white;
+    z-index: 1000;
+}
+
+.popup h2 {
+    background-color: #aee;
+    padding: 10px;
+    margin: 0;
+    border-bottom: 2px solid black;
+}
+
+.popup form {
+    padding: 10px;
+}
+
+.popup form div {
+    margin: 5px 0;
+}
+
+.popup input[type="text"], .popup input[type="date"], .popup select {
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+.popup button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.popup .print-button {
+    background-color: #007bff;
+}
+
+.popup .delete-button {
+    background-color: #ff0000;
+}
+
+.popup .update-button {
+    background-color: #00b300;
+}
+
+/* Overlay to dim background */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}

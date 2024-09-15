@@ -38,7 +38,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
       .bg-custom {
-        background-image: url('./images/Screenshot_2024-09-13_064330.png');
+        /* background-image: url('../App/'); */
+        background-image: url('/assets/images/Screenshot_2024-09-13_064330.png');
+
         background-size: cover;
         background-position: center;
         background-color: aliceblue;
