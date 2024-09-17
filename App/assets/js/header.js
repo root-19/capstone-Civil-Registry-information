@@ -19,13 +19,13 @@
    });
 
    // Close dropdowns when clicking outside
-   document.addEventListener('click', function(event) {
-       if (!servicesToggle.contains(event.target) && !servicesDropdown.contains(event.target)) {
+   document.addEventListener('click', function(e) {
+       if (!servicesToggle.contains(e.target) && !servicesDropdown.contains(e.target)) {
            servicesDropdown.style.display = 'none';
            isServicesOpen = false;
        }
 
-       if (!accountToggle.contains(event.target) && !accountDropdown.contains(event.target)) {
+       if (!accountToggle.contains(e.target) && !accountDropdown.contains(e.target)) {
            accountDropdown.style.display = 'none';
            isAccountOpen = false;
        }

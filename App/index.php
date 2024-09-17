@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <style>
       .bg-custom {
         /* background-image: url('../App/'); */
-        background-image: url('/assets/images/Screenshot_2024-09-13_064330.png');
+        background-image: url('../assets/images/Screenshot\ 2024-09-13\ 064330.png');
 
         background-size: cover;
         background-position: center;

@@ -45,15 +45,15 @@
                                 <i class="fa-solid fa-file-circle-plus mr-2"></i>
                                 Registering and issue of Live Birth Certificate
                             </a>
-                            <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 flex items-center">
+                            <a href="../views/founding.php" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 flex items-center">
                                 <i class="fa-solid fa-baby-carriage mr-2"></i>
                                 Registering Foundling
                             </a>
-                            <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 flex items-center">
+                            <a href="../views/death-info.php" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 flex items-center">
                                 <i class="fa-solid fa-skull-crossbones mr-2"></i>
                                 Registering and issue of Death Certificate
                             </a>
-                            <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 flex items-center">
+                            <a href="../views/merriage.php" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 flex items-center">
                                 <i class="fa-solid fa-ring mr-2"></i>
                                 Registering and issue of Marriage Certificate
                             </a>
