@@ -13,12 +13,12 @@ if (isset($_GET['id'])) {
 
 <?php include "../model/header.php"; ?>
 
-<h2 class="text-2xl font-bold mb-4">Edit Live Birth Information</h2>
+<h2 class="text-2xl font-bold mb-4"> Live Birth Information</h2>
 
 <!-- Pop-up form -->
 <div id="popupForm" class="fixed inset-0 z-50 flex items-center justify-center">
     <div class="bg-white w-full max-w-4xl mx-4 p-6 rounded-lg shadow-lg overflow-auto max-h-screen">
-        <h2 class="text-2xl font-bold mb-4 text-center bg-blue-100 py-2">Edit Live Birth Information</h2>
+        <h2 class="text-2xl font-bold mb-4 text-center bg-blue-100 py-2">Live Birth Information</h2>
         <form class="space-y-4" method="POST" action="./functions/update-record.php">
             <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
             <!-- Registry Number and Contact -->

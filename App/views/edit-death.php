@@ -49,44 +49,71 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<h2 class="text-2xl font-bold mb-4">Edit Death Record</h2>
+<h2 class="text-3xl font-bold text-gray-800 mb-6">Death Record</h2>
 
-<form action="" method="POST" class="bg-white p-6 rounded-lg shadow-md">
-    <label class="block mb-2">Registry No:</label>
-    <input type="text" name="registry_no" value="<?php echo htmlspecialchars($record['registry_no']); ?>" class="border rounded p-2 w-full mb-4" required>
+<form action="" method="POST" class="bg-white p-6 rounded-lg shadow-md max-w-xl mx-auto">
+    <!-- Registry Number -->
+    <label class="block mb-2 font-semibold">Registry No:</label>
+    <input type="text" name="registry_no" value="<?php echo htmlspecialchars($record['registry_no']); ?>" class="border border-gray-300 rounded-lg p-2 w-full mb-4" required>
 
-    <label class="block mb-2">Date of Death:</label>
-    <input type="date" name="date_of_death" value="<?php echo htmlspecialchars($record['date_of_death']); ?>" class="border rounded p-2 w-full mb-4" required>
+    <!-- Date of Death -->
+    <label class="block mb-2 font-semibold">Date of Death:</label>
+    <input type="date" name="date_of_death" value="<?php echo htmlspecialchars($record['date_of_death']); ?>" class="border border-gray-300 rounded-lg p-2 w-full mb-4" required>
 
-    <label class="block mb-2">Last Name:</label>
-    <input type="text" name="founder_last_name" value="<?php echo htmlspecialchars($record['founder_last_name']); ?>" class="border rounded p-2 w-full mb-4" required>
+    <!-- Full Name -->
+    <div class="grid grid-cols-3 gap-4 mb-4">
+        <div>
+            <label class="block mb-2 font-semibold">Last Name:</label>
+            <input type="text" name="founder_last_name" value="<?php echo htmlspecialchars($record['founder_last_name']); ?>" class="border border-gray-300 rounded-lg p-2 w-full" required>
+        </div>
+        <div>
+            <label class="block mb-2 font-semibold">First Name:</label>
+            <input type="text" name="founder_first_name" value="<?php echo htmlspecialchars($record['founder_first_name']); ?>" class="border border-gray-300 rounded-lg p-2 w-full" required>
+        </div>
+        <div>
+            <label class="block mb-2 font-semibold">Middle Name:</label>
+            <input type="text" name="founder_middle_name" value="<?php echo htmlspecialchars($record['founder_middle_name']); ?>" class="border border-gray-300 rounded-lg p-2 w-full" required>
+        </div>
+    </div>
 
-    <label class="block mb-2">First Name:</label>
-    <input type="text" name="founder_first_name" value="<?php echo htmlspecialchars($record['founder_first_name']); ?>" class="border rounded p-2 w-full mb-4" required>
-
-    <label class="block mb-2">Middle Name:</label>
-    <input type="text" name="founder_middle_name" value="<?php echo htmlspecialchars($record['founder_middle_name']); ?>" class="border rounded p-2 w-full mb-4" required>
-
-    <label class="block mb-2">Gender:</label>
-    <select name="gender" class="border rounded p-2 w-full mb-4" required>
+    <!-- Gender Selection -->
+    <label class="block mb-2 font-semibold">Gender:</label>
+    <select name="gender" class="border border-gray-300 rounded-lg p-2 w-full mb-4" required>
         <option value="Male" <?php echo $record['gender'] == 'Male' ? 'selected' : ''; ?>>Male</option>
         <option value="Female" <?php echo $record['gender'] == 'Female' ? 'selected' : ''; ?>>Female</option>
     </select>
 
-    <label class="block mb-2">Street:</label>
-    <input type="text" name="founder_street" value="<?php echo htmlspecialchars($record['founder_street']); ?>" class="border rounded p-2 w-full mb-4" required>
+    <!-- Address & Other Information -->
+    <label class="block mb-2 font-semibold">Street:</label>
+    <input type="text" name="founder_street" value="<?php echo htmlspecialchars($record['founder_street']); ?>" class="border border-gray-300 rounded-lg p-2 w-full mb-4" required>
 
-    <label class="block mb-2">Province:</label>
-    <input type="text" name="founder_province" value="<?php echo htmlspecialchars($record['founder_province']); ?>" class="border rounded p-2 w-full mb-4" required>
+    <label class="block mb-2 font-semibold">Province:</label>
+    <input type="text" name="founder_province" value="<?php echo htmlspecialchars($record['founder_province']); ?>" class="border border-gray-300 rounded-lg p-2 w-full mb-4" required>
 
-    <label class="block mb-2">Occupation:</label>
-    <input type="text" name="Occupation" value="<?php echo htmlspecialchars($record['occupation']); ?>" class="border rounded p-2 w-full mb-4" required>
+    <label class="block mb-2 font-semibold">Occupation:</label>
+    <input type="text" name="Occupation" value="<?php echo htmlspecialchars($record['occupation']); ?>" class="border border-gray-300 rounded-lg p-2 w-full mb-4" required>
 
-    <label class="block mb-2">Civil Status:</label>
-    <input type="text" name="civil_status" value="<?php echo htmlspecialchars($record['civil_status']); ?>" class="border rounded p-2 w-full mb-4" required>
+    <label class="block mb-2 font-semibold">Civil Status:</label>
+    <input type="text" name="civil_status" value="<?php echo htmlspecialchars($record['civil_status']); ?>" class="border border-gray-300 rounded-lg p-2 w-full mb-4" required>
 
-    <label class="block mb-2">Cause of Death:</label>
-    <input type="text" name="cause_of_death" value="<?php echo htmlspecialchars($record['cause_of_death']); ?>" class="border rounded p-2 w-full mb-4" required>
+    <label class="block mb-2 font-semibold">Cause of Death:</label>
+    <input type="text" name="cause_of_death" value="<?php echo htmlspecialchars($record['cause_of_death']); ?>" class="border border-gray-300 rounded-lg p-2 w-full mb-4" required>
 
-    <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded font-bold">Update</button>
+    <!-- Buttons for Print, Cancel, and Update -->
+    <div class="flex justify-between mt-6">
+        <button type="button" onclick="printPage()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg">Print</button>
+        <button type="button" onclick="closePopup()" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg">Cancel</button>
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">Update</button>
+    </div>
 </form>
+
+<script>
+    function closePopup() {
+    window.location.href = 'death-info.php';
+}
+
+// Trigger the browser's print functionality
+function printPage() {
+    window.print();
+}
+</script>

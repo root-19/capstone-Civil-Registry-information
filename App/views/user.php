@@ -8,43 +8,22 @@
         </div>
 
         <div class="grid grid-cols-2 gap-6 mt-4">
-            <!-- Calendar Section -->
-            <div class="bg-white p-4 rounded-lg shadow-md calendar-bg">
-                <h2 class="text-xl font-semibold text-center mb-4">October 2023</h2>
-                <div class="grid grid-cols-7 gap-2">
-                    <!-- Calendar Header (Sun to Sat) -->
-                    <div class="text-center font-bold">Sun</div>
-                    <div class="text-center font-bold">Mon</div>
-                    <div class="text-center font-bold">Tue</div>
-                    <div class="text-center font-bold">Wed</div>
-                    <div class="text-center font-bold">Thu</div>
-                    <div class="text-center font-bold">Fri</div>
-                    <div class="text-center font-bold">Sat</div>
-                    
-                    <!-- Calendar Days -->
-                    <!-- Fill with dates, adjust as per month -->
-                    <div class="text-center font-bold">1</div>
-                    <div class="text-center font-bold">2</div>
-                    <div class="text-center font-bold">3</div>
-                    <div class="text-center font-bold">4</div>
-                    <div class="text-center font-bold">5</div>
-                    <div class="text-center font-bold">6</div>
-                    <div class="text-center font-bold">7</div>
-                    <div class="text-center font-bold ">8</div>
-                    <div class="text-center">9</div>
-                    <div class="text-center">10</div>
-                    <div class="text-center">11</div>
-                    <div class="text-center">12</div>
-                    <div class="text-center">13</div>
-                    <div class="text-center">14</div>
-                    <div class="text-center">15</div>
-                    <div class="text-center">16</div>
-                    <div class="text-center">17</div>
-                    <div class="text-center">18</div>
-                    <div class="text-center">19</div>
-                    <div class="text-center">20</div>
-
-                 
+             <!-- Calendar Section -->
+    <div class="bg-white p-4 rounded-lg shadow-md calendar-bg">
+        <h2 id="calendarMonthYear" class="text-xl font-semibold text-center mb-4"></h2>
+        <div class="grid grid-cols-7 gap-1">
+            <!-- Calendar Header (Sun to Sat) -->
+            <div class="text-center font-bold">Sun</div>
+            <div class="text-center font-bold">Mon</div>
+            <div class="text-center font-bold">Tue</div>
+            <div class="text-center font-bold">Wed</div>
+            <div class="text-center font-bold">Thu</div>
+            <div class="text-center font-bold">Fri</div>
+            <div class="text-center font-bold">Sat</div>
+            
+            <!-- Calendar Days -->
+            <div id="calendarDays" class="grid grid-cols-7 gap-x-20 gap-y-6 text-center font-bold ml-12"></div>
+        
                 </div>
             </div>
 
@@ -64,6 +43,7 @@
                             <td class="border px-4 py-2">9:00 am</td>
                         </tr>
                         <!-- Add more rows as needed -->
+                         
                     </tbody>
                 </table>
             </div>
@@ -91,5 +71,54 @@
             </table>
         </div>
     </div>
-</body>
-</html>
+    <script>
+    // Get current date info
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth(); // 0-indexed (0 = January)
+    const currentYear = currentDate.getFullYear();
+
+    // Array of month names
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    // Number of days in each month
+    const daysInMonth = (month, year) => new Date(year, month + 1, 0).getDate();
+
+    // First day of the current month
+    const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay(); // 0 = Sunday
+
+    // Get total days in the current month
+    const totalDays = daysInMonth(currentMonth, currentYear);
+
+    // Update the month and year in the header
+    document.getElementById('calendarMonthYear').innerText = `${monthNames[currentMonth]} ${currentYear}`;
+
+    // Generate calendar days
+    const calendarDaysContainer = document.getElementById('calendarDays');
+    calendarDaysContainer.innerHTML = '';
+
+    // Add empty slots for days before the first day of the month
+    for (let i = 0; i < firstDayOfMonth; i++) {
+        const emptySlot = document.createElement('div');
+        emptySlot.classList.add('text-center');
+        calendarDaysContainer.appendChild(emptySlot);
+    }
+
+    // Add the actual days of the month
+    for (let day = 1; day <= totalDays; day++) {
+        const dayElement = document.createElement('div');
+        dayElement.classList.add('text-center', 'font-bold');
+        dayElement.innerText = day;
+        calendarDaysContainer.appendChild(dayElement);
+    }
+
+    // Fill remaining empty slots to complete the last week row
+    const totalSlots = firstDayOfMonth + totalDays;
+    const remainingSlots = 7 - (totalSlots % 7);
+    if (remainingSlots < 7) {
+        for (let i = 0; i < remainingSlots; i++) {
+            const emptySlot = document.createElement('div');
+            emptySlot.classList.add('text-center');
+            calendarDaysContainer.appendChild(emptySlot);
+        }
+    }
+</script>

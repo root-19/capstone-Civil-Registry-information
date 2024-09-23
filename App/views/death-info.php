@@ -65,7 +65,7 @@ $result = mysqli_query($conn, $sql);
             <td class="border px-4 py-2"><?php echo htmlspecialchars($row['date_of_death']); ?></td>
             <td class="border px-4 py-2">
                 <a href="./edit-death.php?id=<?php echo $id; ?>" class="bg-yellow-500 text-white py-1 px-2 rounded">Edit</a>
-                <a href="./functions/delete.php?id=<?php echo $id; ?>" class="bg-red-500 text-white py-1 px-2 rounded">Delete</a>
+                <a href="./functions/delete-death.php?id=<?php echo $id; ?>" class="bg-red-500 text-white py-1 px-2 rounded">Delete</a>
             </td>
         </tr>
         <?php } ?>
