@@ -38,13 +38,41 @@ $sql = "SELECT * FROM death_info";
 $result = mysqli_query($conn, $sql);
 ?>
 
+<script>
+
+// Search functionality for the table
+function searchProduct(value) {
+    const rows = document.querySelectorAll("tbody tr");
+
+    rows.forEach(row => {
+        const registryNo = row.cells[0].textContent.toLowerCase();
+        const founderName = row.cells[1].textContent.toLowerCase();
+        const address = row.cells[2].textContent.toLowerCase();
+
+        if (registryNo.includes(value.toLowerCase()) || 
+            founderName.includes(value.toLowerCase()) || 
+            address.includes(value.toLowerCase())) {
+            row.style.display = "";
+        } else {
+            row.style.display = "none";
+        }
+    });
+}
+</script>
 <?php include "../model/header.php"; ?>
 
 <h2 class="text-2xl font-bold mb-4">Register Death</h2>
+<!-- Search bar -->
+<div class="max-w-lg mx-auto mt-6">
+  <a href="#" class="add-button bg-blue-500 text-white py-2 px-4 rounded font-bold" onclick="openPopup()">Add +</a>
 
-<!-- Add button that triggers the pop-up -->
-<a href="#" class="add-button bg-blue-500 text-white py-2 px-4 rounded font-bold" onclick="openPopup()">Add +</a>
+    <!-- Search Input Field -->
+    <input type="text" id="productSearch" placeholder="Search" oninput="searchProduct(this.value)"
+        class="w-full p-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all">
 
+    <!-- Search Results Dropdown -->
+    <div id="searchResults" class="absolute w-full bg-white shadow-lg border border-gray-200 rounded-lg mt-1 max-h-56 overflow-y-auto hidden z-10"></div>
+</div>
 <!-- Table displaying registered live births -->
 <table class="min-w-full bg-white border border-gray-200 mt-4">
     <thead>
@@ -64,8 +92,8 @@ $result = mysqli_query($conn, $sql);
             <td class="border px-4 py-2"><?php echo htmlspecialchars($row['founder_last_name'] . ', ' . $row['founder_first_name']); ?></td>
             <td class="border px-4 py-2"><?php echo htmlspecialchars($row['date_of_death']); ?></td>
             <td class="border px-4 py-2">
-                <a href="./edit-death.php?id=<?php echo $id; ?>" class="bg-yellow-500 text-white py-1 px-2 rounded">Edit</a>
-                <a href="./functions/delete-death.php?id=<?php echo $id; ?>" class="bg-red-500 text-white py-1 px-2 rounded">Delete</a>
+                <a href="./edit-death.php?id=<?php echo $id; ?>" class="bg-blue-500 text-white py-1 px-2 rounded">VIEW</a>
+                <!-- <a href="./functions/delete-death.php?id=<?php echo $id; ?>" class="bg-red-500 text-white py-1 px-2 rounded">Delete</a> -->
             </td>
         </tr>
         <?php } ?>

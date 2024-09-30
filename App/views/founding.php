@@ -116,8 +116,8 @@ function searchProduct(value) {
             <td class="border px-4 py-2"><?php echo htmlspecialchars($row['founder_last_name'] . ', ' . $row['founder_first_name']); ?></td>
             <td class="border px-4 py-2"><?php echo htmlspecialchars($row['founder_street'] . ', ' . $row['founder_barangay'] . ', ' . $row['founder_province'] . ', ' . $row['founder_zipcode']); ?></td>
             <td class="border px-4 py-2">
-                <a href="./edit-founding.php?id=<?php echo $id; ?>" class="bg-yellow-500 text-white py-1 px-2 rounded">Edit</a>
-                <a href="./functions/delete-found.php?id=<?php echo $id; ?>" class="bg-red-500 text-white py-1 px-2 rounded">Delete</a>
+                <a href="./edit-founding.php?id=<?php echo $id; ?>" class="bg-blue-500 text-white py-1 px-2 rounded">VIEW</a>
+                <!-- <a href="./functions/delete-found.php?id=<?php echo $id; ?>" class="bg-red-500 text-white py-1 px-2 rounded">Delete</a> -->
             </td>
         </tr>
         <?php } ?>

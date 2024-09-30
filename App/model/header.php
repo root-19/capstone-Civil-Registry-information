@@ -7,6 +7,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <style>
         /* Ensure dropdowns are hidden initially */
         .dropdown-menu {
@@ -61,10 +63,30 @@
                     </div>
                 </nav>
 
-                <!-- Event Notification -->
-                <a href="#" class="relative text-gray-600 hover:text-blue-500">
-                    Event Notifications
-                </a>
+               <!-- Event Notification -->
+<div class="relative inline-block text-left">
+    <a href="#" id="event-notifications" class="relative text-gray-600 hover:text-blue-500">
+        Event Notifications
+    </a>
+    <div id="dropdown" class="hidden absolute right-0 z-10 w-48 mt-2 bg-white rounded-md shadow-lg">
+        <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-menu">
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Event 1: Community Clean-Up</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Event 2: Monthly Meeting</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Event 3: Health Fair</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Event 4: Sports Fest</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Event 5: Cultural Festival</a>
+        </div>
+    </div>
+</div>
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('event-notifications').addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent the default anchor behavior
+                const dropdown = document.getElementById('dropdown');
+                dropdown.classList.toggle('hidden'); // Toggle the visibility of the dropdown
+            });
+        });
+    </script>
 
                 <!-- Search Bar -->
                 <div>
@@ -80,8 +102,8 @@
                         Account
                     </button>
                     <div id="accountDropdown" class="dropdown-menu absolute right-0 bg-white shadow-lg rounded-md mt-2 w-40">
-                        <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Profile</a>
-                        <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Settings</a>
+                        <a href="../views/profile.php" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Profile</a>
+                        <a href="../views/settings.php" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Settings</a>
                         <a href="logout.php" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Logout</a>
                     </div>
                 </div>

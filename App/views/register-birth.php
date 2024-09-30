@@ -39,12 +39,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
+<script>
+
+// Search functionality for the table
+function searchProduct(value) {
+    const rows = document.querySelectorAll("tbody tr");
+
+    rows.forEach(row => {
+        const registryNo = row.cells[0].textContent.toLowerCase();
+        const founderName = row.cells[1].textContent.toLowerCase();
+        const address = row.cells[2].textContent.toLowerCase();
+
+        if (registryNo.includes(value.toLowerCase()) || 
+            founderName.includes(value.toLowerCase()) || 
+            address.includes(value.toLowerCase())) {
+            row.style.display = "";
+        } else {
+            row.style.display = "none";
+        }
+    });
+}
+</script>
 <?php  include "../model/header.php"; ?>
 <h2 class="text-2xl font-bold mb-4">Registering of Live Births</h2>
 
-<!-- Add button that triggers the pop-up -->
-<a href="#" class="add-button bg-blue-500 text-white py-2 px-4 rounded font-bold" onclick="openPopup()">Add +</a>
+<!-- Search bar -->
+<div class="max-w-lg mx-auto mt-6">
+  <a href="#" class="add-button bg-blue-500 text-white py-2 px-4 rounded font-bold" onclick="openPopup()">Add +</a>
 
+    <!-- Search Input Field -->
+    <input type="text" id="productSearch" placeholder="Search" oninput="searchProduct(this.value)"
+        class="w-full p-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all">
+
+    <!-- Search Results Dropdown -->
+    <div id="searchResults" class="absolute w-full bg-white shadow-lg border border-gray-200 rounded-lg mt-1 max-h-56 overflow-y-auto hidden z-10"></div>
+</div>
 <!-- Table displaying registered live births -->
 <table class="w-full border-collapse mt-4">
     <thead>
@@ -62,8 +91,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <td class="border px-4 py-2"><?php echo $row['name_first'] . " " . $row['name_middle'] . " " . $row['name_last']; ?></td>
             <td class="border px-4 py-2"><?php echo $row['place_birth_city'] . ", " . $row['place_birth_province']; ?></td>
             <td class="border px-4 py-2">
-                <a href="edit.php?id=<?php echo $row['id']; ?>" class="bg-yellow-500 text-white py-1 px-2 rounded">Edit</a>
-                <a href="./functions/delete.php?id=<?php echo $row['id']; ?>" class="bg-red-500 text-white py-1 px-2 rounded">Delete</a>
+                <a href="edit.php?id=<?php echo $row['id']; ?>" class="bg-blue-500 text-white py-1 px-2 rounded">VIEW</a>
+                <!-- <a href="./functions/delete.php?id=<?php echo $row['id']; ?>" class="bg-red-500 text-white py-1 px-2 rounded">Delete</a> -->
             </td>
         </tr>
         <?php endwhile; ?>
