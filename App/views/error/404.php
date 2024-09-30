@@ -14,7 +14,7 @@
     <script>
         // Redirect to home page after 5 seconds
         setTimeout(function() {
-            window.location.href = '../sindex.php'; 
+            window.location.href = '../index.php'; 
         }, 5000);
     </script>
 </head>
